@@ -1,25 +1,34 @@
-import os
-
 print ("welcome to to the game")
 
 clear = lambda: print("\033[2J\033[H", end="", flush=True)# CLEAR FUNCTION
 
-balence = 100
-wallet = 50
+
+
+# for the bank
 loggedin = False
 correctuser = "admin"
 correctpass = "1234"
+bank_name = "bad banking"
+balence = 100
+wallet = 50
+
+# what part of the game your in
 in_bank = False
 in_world = True
-bank_name = "bad banking"
+in_shop = False
 
+#shop items
+shop_items = ["apple", "banana", "cherry"]
+shop_prices = [10 , 10 , 10]
+shop_item = None 
+need_to_print = False
 
 while (True == True) : # for game loop
     if (in_world == True and in_bank == True) : #catch in both are true
         in_bank = False
     if (in_world == False and in_bank == False) : #catch if both are false
         in_world = True
-    while (in_bank == True): # banking system
+    while (in_bank == True): # banking part of game
         while (loggedin != True):
             print(f"welcome to {bank_name} login")
             username = input("username:")
@@ -100,14 +109,25 @@ while (True == True) : # for game loop
             in_world = True
             clear()
 
-
     while (in_world == True) :
         answer = input("whare do you wanna go? \n 1:the bank \n 2:the store \n :")
         if (answer.isdigit):
             answer = int(answer)
-            if (answer == 1):
+            if (answer == 1): #to the bank
                 in_world = False
                 in_bank = True
+                in_shop = False
                 clear()
-        
-        
+
+            if (answer == 2): #to the store
+                in_shop = True
+                in_world = False
+                in_bank = False
+
+    while (in_shop == True) :
+        if (need_to_print):
+            for x in shop_items:
+                print(x)
+                if (x == len(shop_items)):
+                    break
+    #need to fix this rember it checks for need to print
