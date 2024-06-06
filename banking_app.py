@@ -10,7 +10,7 @@ loggedin = False
 correctuser = "admin"
 correctpass = "1234"
 in_bank = True
-in_world = True
+in_world = False
 
 save_path = "C:\\Users\\jdhba\\Desktop\\Phython\\save.txt"
 
@@ -41,33 +41,53 @@ while (True == True) : # for game loop
         print ("5: change password")
         print ("6: log out")
         answer = int(input ("opption :"))
-        if (answer == 1) :
+        if (answer == 1) : #checks for option 1 witch is acouint balense
             
-            input((balence))
-        elif (answer == 2):
+            input((balence)) #prints balense to console
+
+        elif (answer == 2): #option 2 deposit money
+
             deposet = input("how much would you like to add? : ")
+
             if (deposet.isdigit):
-                deposet = int(deposet)
-                balence = balence + deposet
-                input (f"your new balense is {balence} ")
-            else :(print ("sorry only numbers allowed"))
+
+                deposet = int(deposet) #turns the string into a int
+
+                if (deposet <= wallet)  :
+                    balence = balence + deposet
+                    wallet = wallet - deposet
+                    input (f"your new balense is {balence} and you have {wallet}$ on hand")
+
+                else: 
+                    input(f"sorry not enougf money in your wallet : {wallet} ")
+
+            else :(print ("sorry only numbers allowed")) #if the input is not a number
+
         elif (answer == 3):
-            withdrael = input("how much would you like to remove? : ")
+            withdrael = input("how much would you like to withdrawl? : ")
             if (withdrael.isdigit):
                 withdrael = int(withdrael)
                 if (withdrael > balence):
                     input("sorry not enougf money in the acouint")
                 else :
+
                     balence = balence - withdrael
-                    input (f"your new balense is {balence} ")
+                    wallet = wallet + withdrael
+                    input (f"your new balense is {balence} and you have {wallet}$ on hand")
+
             else :(print ("sorry only numbers allowed"))
+
         elif (answer == 4):
+
             newusername = input("Whats the new username? :")
             correctuser = newusername
             input(f"user name actped new username is : {newusername}"  )
+
         elif (answer == 5):
+
             print ("to change password please enter current password")
             password = input("password:")
+            
             if(password != correctpass):
                 print("sorry password was incorect logging out")
                 loggedin = False
@@ -79,5 +99,8 @@ while (True == True) : # for game loop
             loggedin = False
             in_bank = False
             clear()
+
+
     while (in_world == True) :
         print("whare do you wanna go? \n 1:the bank \n 2:the store")
+        
