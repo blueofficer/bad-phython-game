@@ -12,11 +12,7 @@ correctpass = "1234"
 in_bank = True
 in_world = False
 
-save_path = "C:\\Users\\jdhba\\Desktop\\Phython\\save.txt"
 
-def save(): #save system
-    if os.path.exists(save_path) :
-        None
 
 while (True == True) : # for game loop
     if (in_world == True and in_bank == True) : #catch in both are true
