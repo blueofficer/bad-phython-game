@@ -105,8 +105,9 @@ while (True == True) : # for game loop
         answer = input("whare do you wanna go? \n 1:the bank \n 2:the store \n :")
         if (answer.isdigit):
             answer = int(answer)
-            in_world = False
-            in_bank = True
-            clear()
+            if (answer == 1):
+                in_world = False
+                in_bank = True
+                clear()
         
         
