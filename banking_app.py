@@ -1,6 +1,6 @@
 import os
 
-print ("welcome to bad banking.")
+print ("welcome to to the game")
 
 clear = lambda: print("\033[2J\033[H", end="", flush=True)# CLEAR FUNCTION
 
@@ -9,9 +9,9 @@ wallet = 50
 loggedin = False
 correctuser = "admin"
 correctpass = "1234"
-in_bank = True
-in_world = False
-
+in_bank = False
+in_world = True
+bank_name = "bad banking"
 
 
 while (True == True) : # for game loop
@@ -21,6 +21,7 @@ while (True == True) : # for game loop
         in_world = True
     while (in_bank == True): # banking system
         while (loggedin != True):
+            print(f"welcome to {bank_name} login")
             username = input("username:")
             password = (input("password:"))
             
@@ -28,7 +29,7 @@ while (True == True) : # for game loop
                 loggedin = True
             else :(print ("username or password is wrong"))
         clear()
-        print ("welcome to bad banking.")
+        print (f"welcome to {bank_name}.")
         print ("what would you like todo?")
         print ("1: check acount balance")
         print ("2: deposet money")
@@ -36,7 +37,9 @@ while (True == True) : # for game loop
         print ("4: change username")
         print ("5: change password")
         print ("6: log out")
+
         answer = int(input ("opption :"))
+
         if (answer == 1) : #checks for option 1 witch is acouint balense
             
             input((balence)) #prints balense to console
@@ -94,9 +97,16 @@ while (True == True) : # for game loop
         elif (answer == 6):
             loggedin = False
             in_bank = False
+            in_world = True
             clear()
 
 
     while (in_world == True) :
-        print("whare do you wanna go? \n 1:the bank \n 2:the store")
+        answer = input("whare do you wanna go? \n 1:the bank \n 2:the store \n :")
+        if (answer.isdigit):
+            answer = int(answer)
+            in_world = False
+            in_bank = True
+            clear()
+        
         
