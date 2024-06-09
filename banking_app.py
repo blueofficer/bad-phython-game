@@ -125,9 +125,4 @@ while (True == True) : # for game loop
                 in_bank = False
 
     while (in_shop == True) :
-        if (need_to_print):
-            for x in shop_items:
-                print(x)
-                if (x == len(shop_items)):
-                    break
-    #need to fix this rember it checks for need to print
+        input("what would you like to buy?")
