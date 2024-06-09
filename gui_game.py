@@ -8,11 +8,14 @@ window.geometry("420x420")
 window.title("video game")
 window.config(background="black")
 
-label = Label(window,text=f"{display_text}",
+game_text = Label(window,text=f"{display_text}",
               font=('Arial',20,'bold'),
               fg='#03fc03' , #text color
               bg='black')    #background color
 
-label.place(x=0,y=0)
+player_entry = Entry(window)
+
+player_entry.place(x=0,y=100)
+game_text.place(x=0,y=0)
 
 window.mainloop() #place window on screen
